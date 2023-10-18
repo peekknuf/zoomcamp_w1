@@ -32,4 +32,4 @@ COPY postgresql-42.6.0.jar ${SPARK_HOME}/jars
 EXPOSE 22
 EXPOSE 8081
 
-ENTRYPOINT ["python", "uploading_data.py"]
+ENTRYPOINT [ "python", "uploading_data.py" ]

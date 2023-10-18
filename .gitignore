@@ -1,4 +1,6 @@
 123
 build.sh
 postgresql-42.6.0.jar
+output.csv
+output.parquet
 ny_taxi_postgres_data/
