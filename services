@@ -22,28 +22,30 @@ docker run -it \
 
 URL="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
 URL="https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv"
+URL="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
 python3 ingest_data.py \
   --user=root \
   --password=root \
   --host=localhost \
   --port=5432 \
   --db=ny_taxi \
-  --table_name=yellow_taxi_zones \
+  --table_name=yellow_taxi \
   --schema_name=public \
   --url=${URL}
 
 docker build -t taxi_ingest:v001 .
 
-docker build -f spark.Dockerfile -t taxi_ingest:v001 .
+docker build -f spark_clean.dockerfile -t taxi_ingest:v1 .
 
 URL="https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet"
 docker run -it \
   --network=pg-network \
-  taxi_ingest:v001 \
+  taxi_ingest:v1 \
     --user=root \
     --password=root \
-    --host=pg-database \
+    --host=172.17.0.1 \
     --port=5432 \
     --db=ny_taxi \
     --table_name=yellow_taxi \
+    --schema_name=public \
     --url=${URL}
