@@ -33,7 +33,6 @@ def main(params):
     if result.returncode == 0:
         print(f"{file_format.upper()} file downloaded to: {file_name}")
 
-        # Load data
         data_df = spark.read.format(file_format)
 
         if file_format == "csv":
@@ -42,7 +41,6 @@ def main(params):
 
         data_df = data_df.load(file_name)
 
-        # Write data to the PostgreSQL table
         data_df.write \
             .format("jdbc") \
             .option("url", f"jdbc:postgresql://{host}:{port}/{db}") \

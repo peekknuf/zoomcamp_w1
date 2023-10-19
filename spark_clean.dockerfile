@@ -29,7 +29,6 @@ WORKDIR /app
 COPY ingest_data.py ingest_data.py
 COPY postgresql-42.6.0.jar ${SPARK_HOME}/jars
 
-# Install PySpark
 RUN pip3 install pyspark
 
 EXPOSE 22
