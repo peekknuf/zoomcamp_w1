@@ -49,3 +49,16 @@ docker run -it \
     --table_name=yellow_taxi \
     --schema_name=public \
     --url=${URL}
+
+
+python3 pyspark_directory_ingestion.py \
+  --user=root \
+  --password=root \
+  --host=localhost \
+  --port=5432 \
+  --db=ny_taxi \
+  --table_name=yellow_taxi \
+  --schema_name=public \
+  --data_directory="/home/peekknuf/ny_taxi_data/files"
+
+"/home/peekknuf/ny_taxi_data/files"
