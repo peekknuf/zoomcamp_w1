@@ -9,8 +9,10 @@ Python script that downloads either .parquet or .csv, infers the schema and uplo
 
 ![Containers](viz/docker.png)
 
-Data Engineering with one single dataset does not sound fun, so what if we try to get *all* the data that's available there(get_data.py) and ingest it into each individual table by their respective year and month(pyspark_directory_ingestion.py), following the convention that's been initially given. It results in 150+ tables but is arguably cleaner.
+Data Engineering with one single dataset does not sound fun, so what if we try to get *all* the data that's available there(*get_data.py*) and ingest it into each individual table by their respective year and month(*pyspark_directory_ingestion.py*), following the convention that's been initially given. It results in 150+ tables but is arguably cleaner.
 
 ![Containers](viz/My_hardrive_couldnt_handle_more.png)
-^total_row_count.py
-At this moment the mapping to the db ate approximately 150GB of storage that I had left and the whole process shut down. This was a prime example of how great parquet compresses the data. Initially, it was ~27 gb of .parquet
+  
+  ^total_row_count.py
+  
+  At this moment the mapping to the db ate approximately 150GB of storage that I had left and the whole process shut down. This was a prime example of how great parquet compresses the data. Initially, it was ~27 gb of .parquet
