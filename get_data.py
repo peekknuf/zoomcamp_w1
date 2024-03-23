@@ -5,13 +5,13 @@ import time
 
 base_url = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{}-{}.parquet"
 
-start_year = 2009
+start_year = 2022
 end_year = 2023
 
-download_path = "/home/peekknuf/ny_taxi_data/files"
+download_path = "/home/peek/code/ny_taxi_data"
 
 for year in range(start_year, end_year + 1):
-    for month in range(1, 13): 
+    for month in range(1, 13):
         formatted_url = base_url.format(year, str(month).zfill(2))
         filename = os.path.join(download_path, f"yellow_taxi_trips_{year}_{str(month).zfill(2)}.parquet")
 
