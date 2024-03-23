@@ -13,7 +13,7 @@ def ingest_data_to_postgresql(user, password, host, port, db, schema_name, data_
             .getOrCreate()
 
         for data_file in data_files:
-            table_name = data_file.split('.')[0]  
+            table_name = data_file.split('.')[0]
             data_df = spark.read.option("mergeSchema", "true").parquet(os.path.join(data_directory, data_file))
 
             data_df.write \
@@ -36,10 +36,10 @@ def main():
     port = 5432
     db = "ny_taxi"
     schema_name = "public"
-    data_directory = "/home/peekknuf/ny_taxi_data/files"
+    data_directory = "/home/peek/ny_taxi_data"
 
     ingest_data_to_postgresql(user, password, host, port, db, schema_name, data_directory)
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO)  # Configure logging
+    logging.basicConfig(level=logging.INFO)
     main()
