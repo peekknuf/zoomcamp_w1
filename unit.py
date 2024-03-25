@@ -22,7 +22,7 @@ class TestDatabaseConnection(unittest.TestCase):
 
     def test_database_connection(self):
         # Define PostgreSQL connection properties
-        url = "jdbc:postgresql://localhost:5432/ny_taxi"
+        url = "jdbc:postgresql://172.27.49.79:5432/ny_taxi"
 
         # Create a sample DataFrame to write to the database
         sample_data = [("John", 30), ("Alice", 25), ("Bob", 35)]

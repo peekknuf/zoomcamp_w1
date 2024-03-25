@@ -39,7 +39,7 @@ def ingest_data_to_postgresql(
 def main():
     user = "root"
     password = "1234"
-    host = "localhost"
+    host = "172.27.49.79"
     port = 5432
     db = "ny_taxi"
     schema_name = "public"
