@@ -9,7 +9,6 @@ ENV PATH=${PATH}:${SPARK_HOME}/bin
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     curl vim wget software-properties-common ssh net-tools \
-    wamerican wamerican-insane wbrazilian wdutch wbritish-large \
     python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-psycopg2 \
     python3-venv && \
     ln -s /usr/bin/python3 /usr/bin/python && \
